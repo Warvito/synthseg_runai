@@ -20,7 +20,7 @@ while IFS=$'\t' read -r -a myArray; do
     echo ${OUTPUT_IMG}
     echo ${OUTPUT_VOL}
 
-#    python ./scripts/commands/SynthSeg_predict.py --i ${INPUT_IMG} --o ${OUTPUT_IMG} --vol ${OUTPUT_VOL}
+    python ./scripts/commands/SynthSeg_predict.py --i ${INPUT_IMG} --o ${OUTPUT_IMG} --vol ${OUTPUT_VOL}
 
     COUNTER=$[$COUNTER +1]
   else
