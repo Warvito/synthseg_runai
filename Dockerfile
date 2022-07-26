@@ -12,6 +12,11 @@ RUN pip3 install -r requirements.txt
 
 RUN git clone https://github.com/BBillot/SynthSeg.git \
   && cd SynthSeg \
-  && git reset --hard cd597b080eb11bdd54e4e75b28b79b41b322c0c8
+  && git reset --hard 99d2ff2f45e56361842f13d39aebe09bc6ec5c9b
+
+COPY ./outputs/models/synthseg_2.0.h5 /workspace/SynthSeg/models/
+COPY ./outputs/models/synthseg_parc_2.0.h5 /workspace/SynthSeg/models/
+COPY ./outputs/models/synthseg_qc_2.0.h5 /workspace/SynthSeg/models/
+COPY ./outputs/models/synthseg_robust_2.0.h5 /workspace/SynthSeg/models/
 
 WORKDIR /workspace/SynthSeg
