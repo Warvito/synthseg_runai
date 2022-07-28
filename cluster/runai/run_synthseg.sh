@@ -1,5 +1,5 @@
 
-for i in {0..30}; do
+for i in {0..1}; do
   start=$((1+(${i} * 100)))
   stop=$((1+((${i} + 1) * 100)))
 
@@ -12,11 +12,11 @@ for i in {0..30}; do
     --large-shm \
     --run-as-user \
     --host-ipc \
-    --node-type "dgx2-b" \
+    --node-type "dgx2-a" \
     --project wds20 \
     --volume /nfs/home/wds20/projects/synthseg_runai/:/project/ \
-    --volume /nfs/project/danieltudosiu/results/journal_transformer_generative/ukb/ours/:/source/ \
-    --volume /nfs/project/danieltudosiu/results/journal_transformer_generative/synthseg_results/ukb/ours/:/target/ \
+    --volume /nfs/project/danieltudosiu/results/journal_transformer_generative/ukb/our_final_igptm/:/source/ \
+    --volume /nfs/project/danieltudosiu/results/journal_transformer_generative/synthseg_results/ukb/our_final_igptm/:/target/ \
     --command -- bash /project/src/run_synthseg.sh \
     ${start} \
     ${stop}
