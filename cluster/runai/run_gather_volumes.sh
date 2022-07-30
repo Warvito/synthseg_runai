@@ -9,5 +9,5 @@ runai submit \
   --host-ipc \
   --project wds20 \
   --volume /nfs/home/wds20/projects/synthseg_runai/:/project/ \
-  --volume /nfs/project/danieltudosiu/results/journal_transformer_generative/synthseg_results/ukb/ours/:/target/ \
+  --volume /nfs/home/wds20/datasets/journal_transformer_generative/synthseg_results/our_final_igpts/:/target/ \
   --command -- sleep infinity
