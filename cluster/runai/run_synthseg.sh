@@ -1,5 +1,5 @@
 
-for i in {3..14}; do
+for i in 0; do
   start=$((1+(${i} * 100)))
   stop=$((1+((${i} + 1) * 100)))
 
@@ -10,13 +10,12 @@ for i in {3..14}; do
     --gpu 0.5 \
     --cpu 4 \
     --large-shm \
-    --run-as-user \
     --host-ipc \
     --node-type "dgx2-a" \
     --project wds20 \
     --volume /nfs/home/wds20/projects/synthseg_runai/:/project/ \
-    --volume /nfs/project/danieltudosiu/results/journal_transformer_generative/ukb/our_final_igpts/:/source/ \
-    --volume /nfs/home/wds20/datasets/journal_transformer_generative/synthseg_results/our_final_igpts/:/target/ \
+    --volume /nfs/project/danieltudosiu/results/journal_transformer_generative/ukb/hagan/:/source/ \
+    --volume /nfs/home/wds20/datasets/journal_transformer_generative/synthseg_results/hagan/:/target/ \
     --command -- bash /project/src/run_synthseg.sh \
     ${start} \
     ${stop}
