@@ -1,10 +1,10 @@
 
-for i in 0; do
+for i in {20..40}; do
   start=$((1+(${i} * 100)))
   stop=$((1+((${i} + 1) * 100)))
 
   runai submit \
-    --name volume-${start}-${stop} \
+    --name volume2-${start}-${stop} \
     --image 10.202.67.207:5000/wds20:synthseg_runai \
     --backoff-limit 0 \
     --gpu 0.5 \
@@ -23,10 +23,10 @@ done
 
 
 
-for i in {0..40}; do
+for i in {20..40}; do
   start=$((1+(${i} * 100)))
   stop=$((1+((${i} + 1) * 100)))
-  runai delete job volume-${start}-${stop}
+  runai delete job volume2-${start}-${stop}
 done
 
 
