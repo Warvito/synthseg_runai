@@ -1,5 +1,5 @@
 
-for i in 0; do
+for i in {38..39}; do
   start=$((1+(${i} * 100)))
   stop=$((1+((${i} + 1) * 100)))
 
@@ -10,7 +10,6 @@ for i in 0; do
     --gpu 0.5 \
     --cpu 4 \
     --large-shm \
-    --run-as-user \
     --host-ipc \
     --node-type "dgx2-a" \
     --project wds20 \
