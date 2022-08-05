@@ -1,7 +1,7 @@
 
-for i in {3..14}; do
-  start=$((1+(${i} * 100)))
-  stop=$((1+((${i} + 1) * 100)))
+for i in 0; do
+  start=$((1+(${i} * 50)))
+  stop=$((1+((${i} + 1) * 50)))
 
   runai submit \
     --name volume-${start}-${stop} \
@@ -15,8 +15,8 @@ for i in {3..14}; do
     --node-type "dgx2-a" \
     --project wds20 \
     --volume /nfs/home/wds20/projects/synthseg_runai/:/project/ \
-    --volume /nfs/project/danieltudosiu/results/journal_transformer_generative/ukb/our_final_igpts/:/source/ \
-    --volume /nfs/home/wds20/datasets/journal_transformer_generative/synthseg_results/our_final_igpts/:/target/ \
+    --volume /nfs/project/danieltudosiu/results/journal_transformer_generative/ukb/uniform_sampling/:/source/ \
+    --volume /nfs/home/wds20/datasets/journal_transformer_generative/synthseg_results/uniform_sampling/:/target/ \
     --command -- bash /project/src/run_synthseg.sh \
     ${start} \
     ${stop}
