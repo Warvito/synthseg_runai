@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 
 ids_df = pd.read_csv(
-    "/project/outputs/ids/existing_samples_subset_preprocessed.tsv",
+    "/project/outputs/ids/existing_samples_subset_preprocessed_uniform_sampling.tsv",
     sep="\t"
 )
 volumes_list = []
@@ -29,7 +29,7 @@ for index, row in tqdm(ids_df.iterrows(), total=ids_df.shape[0]):
 
 volumes_df = pd.DataFrame(volumes_list)
 volumes_df.to_csv(
-    "/project/outputs/volumes_synthseg_igpts.tsv",
+    "/project/outputs/volumes_synthseg_uniform.tsv",
     sep="\t",
     index=False
 )
