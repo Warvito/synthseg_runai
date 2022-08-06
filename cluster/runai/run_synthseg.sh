@@ -10,7 +10,6 @@ for i in {3..14}; do
     --gpu 0.5 \
     --cpu 4 \
     --large-shm \
-    --run-as-user \
     --host-ipc \
     --node-type "dgx2-a" \
     --project wds20 \

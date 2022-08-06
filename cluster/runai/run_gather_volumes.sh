@@ -5,7 +5,6 @@ runai submit \
   --gpu 0 \
   --cpu 4 \
   --large-shm \
-  --run-as-user \
   --host-ipc \
   --project wds20 \
   --volume /nfs/home/wds20/projects/synthseg_runai/:/project/ \
