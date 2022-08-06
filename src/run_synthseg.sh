@@ -11,9 +11,9 @@ echo "Reading between ${minimum} and ${maximum}"
 COUNTER=0
 while IFS=$'\t' read -r -a myArray; do
   if (($COUNTER >= ${minimum} && $COUNTER < ${maximum})); then
-    INPUT_IMG="/source/${myArray[1]}_${myArray[2]}_T1w_sample/${myArray[1]}_${myArray[2]}_T1w_sample_decoded.nii.gz"
-    OUTPUT_IMG="/target/${myArray[1]}_${myArray[2]}_T1w_sample/"
-    OUTPUT_VOL="/target/${myArray[1]}_${myArray[2]}_T1w_sample/${myArray[1]}_${myArray[2]}_T1w_sample_decoded_vol.csv"
+    INPUT_IMG="/source/${myArray[0]}_T1w.nii.gz"
+    OUTPUT_IMG="/target/${myArray[0]}_T1w/"
+    OUTPUT_VOL="/target/${myArray[0]}/${myArray[0]}_T1w_vol.csv"
 
     echo ${COUNTER}
     echo ${INPUT_IMG}
@@ -26,4 +26,4 @@ while IFS=$'\t' read -r -a myArray; do
   else
     COUNTER=$[$COUNTER +1]
   fi
-done < "/project/outputs/ids/existing_samples_subset_preprocessed.tsv"
+done < "/project/outputs/ids/existing_samples_subset_preprocessed_lsgan.tsv"
