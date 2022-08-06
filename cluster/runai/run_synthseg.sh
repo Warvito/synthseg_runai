@@ -23,9 +23,9 @@ done
 
 
 
-for i in {0..40}; do
-  start=$(((${i} * 100)))
-  stop=$((((${i} + 1) * 100)))
+for i in {0..53}; do
+  start=$(((${i} * 20)))
+  stop=$((((${i} + 1) * 20)))
   runai delete job volume-${start}-${stop}
 done
 
