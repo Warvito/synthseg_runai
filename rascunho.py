@@ -1,7 +1,7 @@
 import pandas as pd
 
 ids_df = pd.read_csv(
-    "/media/walter/Storage/Projects/synthseg_runai/outputs/ids/our_uniform_sampling.csv",
+    "/media/walter/Storage/Projects/synthseg_runai/outputs/ids/uniform_sampling.csv",
     sep="\t"
 )
 
