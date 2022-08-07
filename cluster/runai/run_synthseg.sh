@@ -1,5 +1,5 @@
 
-for i in 127; do
+for i in {0..100}; do
   start=$((1+(${i} * 25)))
   stop=$((1+((${i} + 1) * 25)))
 
@@ -22,9 +22,9 @@ done
 
 
 
-for i in {0..38}; do
-  start=$((1+(${i} * 100)))
-  stop=$((1+((${i} + 1) * 100)))
+for i in {0..100}; do
+  start=$((1+(${i} * 25)))
+  stop=$((1+((${i} + 1) * 25)))
   runai delete job volume2-${start}-${stop}
 done
 
