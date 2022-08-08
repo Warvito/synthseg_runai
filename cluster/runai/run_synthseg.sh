@@ -1,7 +1,7 @@
 
-for i in {0..35}; do
-  start=$((1+(${i} * 10)))
-  stop=$((1+((${i} + 1) * 10)))
+for i in {0..34}; do
+  start=$(((${i} * 10)))
+  stop=$((((${i} + 1) * 10)))
 
   runai submit \
     --name volume-${start}-${stop} \
@@ -20,9 +20,9 @@ for i in {0..35}; do
     ${stop}
 done
 
-for i in {0..40}; do
-  start=$((1+(${i} * 100)))
-  stop=$((1+((${i} + 1) * 100)))
+for i in {0..34}; do
+  start=$(((${i} * 10)))
+  stop=$((((${i} + 1) * 10)))
   runai delete job volume-${start}-${stop}
 done
 
