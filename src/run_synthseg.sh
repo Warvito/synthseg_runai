@@ -26,4 +26,4 @@ while IFS=$'\t' read -r -a myArray; do
   else
     COUNTER=$[$COUNTER +1]
   fi
-done < "/project/outputs/ids/adni_hagan.tsv"
+done < "/project/outputs/ids/missing_preprocessed_adni_hagan.tsv"
