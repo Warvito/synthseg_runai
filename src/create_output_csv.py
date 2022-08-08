@@ -3,13 +3,13 @@ import pandas as pd
 from pathlib import Path
 
 ids_df = pd.read_csv(
-    "/project/outputs/ids/existing_samples_subset_preprocessed.tsv",
+    "/project/outputs/ids/adni_lsgan.tsv",
     sep="\t"
 )
 volumes_list = []
 missing_vol = []
 for index, row in tqdm(ids_df.iterrows(), total=ids_df.shape[0]):
-    vol_path = Path(f"/target/{row['participant_id']}_{row['session_id'] }_T1w_sample/{row['participant_id']}_{row['session_id'] }_T1w_sample_decoded_vol.csv")
+    vol_path = Path(f"/target/{row['filename']}/{row['filename']}_vol.csv")
     if not vol_path.is_file():
         print(f"{str(vol_path)} does not exists!")
         continue
@@ -31,13 +31,13 @@ for index, row in tqdm(ids_df.iterrows(), total=ids_df.shape[0]):
 
 missing_volumes_df = pd.DataFrame(missing_vol)
 missing_volumes_df.to_csv(
-    "/project/outputs/missing_preprocessed_adni_cce.tsv",
+    "/project/outputs/missing_preprocessed_adni_lsgan.tsv",
     sep="\t",
     index=False
 )
 volumes_df = pd.DataFrame(volumes_list)
 volumes_df.to_csv(
-    "/project/outputs/volumes_synthseg_igpts.tsv",
+    "/project/outputs/volumes_synthseg_adni_lsgan.tsv",
     sep="\t",
     index=False
 )
