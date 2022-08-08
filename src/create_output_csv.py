@@ -12,6 +12,7 @@ for index, row in tqdm(ids_df.iterrows(), total=ids_df.shape[0]):
     vol_path = Path(f"/target/{row['filename']}/{row['filename']}_vol.csv")
     if not vol_path.is_file():
         print(f"{str(vol_path)} does not exists!")
+        missing_vol.append(row)
         continue
 
     volume_df = pd.read_csv(str(vol_path), sep=",")
