@@ -1,4 +1,4 @@
-for i in {0..35}; do
+for i in {0..8}; do
   start=$(((${i} * 10)))
   stop=$((((${i} + 1) * 10)))
 
