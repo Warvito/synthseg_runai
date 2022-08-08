@@ -1,16 +1,14 @@
-for i in {0..40}; do
-  start=$(((${i} * 100)))
-  stop=$((((${i} + 1) * 100)))
-
+for i in {0..60}; do
+  start=$(((${i} * 25)))
+  stop=$((((${i} + 1) * 25)))
   runai submit \
     --name volume-${start}-${stop} \
     --image 10.202.67.207:5000/wds20:synthseg_runai \
-    --backoff-limit 0 \
+    --backoff-limit 10 \
     --gpu 1 \
     --cpu 4 \
     --large-shm \
     --host-ipc \
-    --node-type "dgx2-a" \
     --project wds20 \
     --volume /nfs/home/wds20/projects/synthseg_runai/:/project/ \
     --volume /nfs/project/danieltudosiu/results/journal_transformer_generative/ukb/uniform_sampling/:/source/ \
@@ -20,8 +18,8 @@ for i in {0..40}; do
     ${stop}
 done
 
-for i in {0..40}; do
-  start=$(((${i} * 100)))
-  stop=$((((${i} + 1) * 100)))
+for i in {0..60}; do
+  start=$(((${i} * 25)))
+  stop=$((((${i} + 1) * 25)))
   runai delete job volume-${start}-${stop}
 done
